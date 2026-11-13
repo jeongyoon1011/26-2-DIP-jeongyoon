@@ -25,7 +25,8 @@ st.markdown("""
 col1, col2 = st.columns([1, 2.5], gap="large")
 
 with col1:
-    image = Image.open("profile.jpg")
+    from pathlib import Path
+    image = Image.open(Path(__file__).parent / "profile.jpg")
     st.image(image, use_container_width=True)
 
 with col2:
