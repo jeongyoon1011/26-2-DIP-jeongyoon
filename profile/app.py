@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+from pathlib import Path
 
 # 페이지 설정
 st.set_page_config(
@@ -15,9 +16,6 @@ st.markdown("""
         padding-top: 3rem;
         max-width: 1000px;
     }
-    h2 {
-        font-size: 26px;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -25,14 +23,20 @@ st.markdown("""
 col1, col2 = st.columns([1, 2.5], gap="large")
 
 with col1:
-    from pathlib import Path
     image = Image.open(Path(__file__).parent / "profile.jpg")
     st.image(image, use_container_width=True)
 
 with col2:
+
     st.header("JeongYoon Kim")
 
-    st.markdown("**Major**")
-    st.write(
-        "Biomedical Engineering"
+    st.markdown(
+        "<p style='color:gray; font-size:15px;'>"
+        "Department of Biomedical Engineering, "
+        "Hankuk University of Foreign Studies (HUFS)"
+        "</p>",
+        unsafe_allow_html=True
     )
+
+    st.markdown("**Major**")
+    st.write("Biomedical Engineering")
